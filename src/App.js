@@ -1,40 +1,72 @@
-import "./App.css";
-import Header from "./components/header";
+import React from "react";
 import Banner from "./components/banner";
-import FoodCard from "./components/foodCards";
 import { homePageJson } from "./config/constants";
 import Counter from "./components/counter";
-import { useState } from "react";
 
-function App() {
-  const [value, setValue] = useState(0);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: "John",
+      age: 25,
+      education: "BE",
+      salary: 30000,
+      loader: true,
+      value: 0,
+      hideBanner: false,
+    };
+    this.onSubmit = this.onSubmit.bind(this);
+  }
 
-  const increment = () => {
-    setValue(value + 1);
-  };
+  componentDidMount() {
+    setTimeout(() => {
+      let response = {
+        userName: "Bob",
+        age: 23,
+        education: "BSC IT",
+        salary: 30000,
+      };
 
-  const decrement = () => {
-    setValue(value - 1);
-  };
+      this.setState({
+        userName: response.userName,
+        loader: false,
+      });
+    }, 3000);
+  }
 
-  return (
-    <div>
-      <Header />
+  onSubmit() {
+    console.log("Your Form Submitted : ", this.state);
+  }
+
+  render() {
+    return (
       <div>
-        <Counter
-          value={value}
-          onMinus={() => decrement()}
-          onPlus={() => increment()}
-        />
-        <Banner img={homePageJson.bannerImage} />
-        <div className="foodCardList">
-          {homePageJson.foodItems.map((foodItem) => (
-            <FoodCard title={foodItem.title} image={foodItem.img} />
-          ))}
-        </div>
+        {this.state.hideBanner === false && (
+          <Banner img={homePageJson.bannerImage} />
+        )}
+        <button onClick={() => this.setState({ hideBanner: true })}>
+          Hide Banner
+        </button>
+
+        {/* <Counter
+          value={this.state.value}
+          onPlus={() => this.setState({ value: this.state.value + 1 })}
+          onMinus={() => this.setState({ value: this.state.value - 1 })}
+        /> */}
+        {this.state.loader === true ? (
+          <h1>Loading...</h1>
+        ) : (
+          <div>
+            <h3>User Name : {this.state.userName}</h3>
+            <h3>Age : {this.state.age}</h3>
+            <h3>education : {this.state.education}</h3>
+            <h3>salary : {this.state.salary}</h3>
+          </div>
+        )}
+        <button onClick={this.onSubmit}>Submit</button>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
