@@ -1,72 +1,85 @@
-import React from "react";
+import "./App.css";
+import Header from "./components/header";
 import Banner from "./components/banner";
-import { homePageJson } from "./config/constants";
 import Counter from "./components/counter";
+import FoodCard from "./components/foodCards";
+import { homePageJson } from "./config/constants";
+import { useState, useEffect } from "react";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userName: "John",
-      age: 25,
-      education: "BE",
-      salary: 30000,
-      loader: true,
-      value: 0,
-      hideBanner: false,
-    };
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+function App() {
+  const [isLoader, setIsLoader] = useState(true);
+  const [data, setData] = useState(null);
+  const [tab, setTab] = useState("Veg");
+  const [value, setValue] = useState(0);
 
-  componentDidMount() {
+  useEffect(() => {
+    // componentDidMount
+    console.log("USEEFFECT");
     setTimeout(() => {
-      let response = {
-        userName: "Bob",
-        age: 23,
-        education: "BSC IT",
-        salary: 30000,
-      };
+      setData(homePageJson.foodItems);
+      setIsLoader(false);
+    }, 0);
+  }, []);
 
-      this.setState({
-        userName: response.userName,
-        loader: false,
-      });
-    }, 3000);
-  }
+  useEffect(() => {
+    // componentDidUpdate
+    console.log("Tab updated", tab);
+    let originalData = [...homePageJson.foodItems];
+    let filteredData = [];
+    if (tab === "Veg") {
+      filteredData = originalData.filter((item) => item.isVeg);
+    } else {
+      filteredData = originalData.filter((item) => item.isVeg === false);
+    }
+    console.log("filterdata : ", filteredData);
+    setData(filteredData);
+  }, [tab]);
 
-  onSubmit() {
-    console.log("Your Form Submitted : ", this.state);
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.hideBanner === false && (
-          <Banner img={homePageJson.bannerImage} />
-        )}
-        <button onClick={() => this.setState({ hideBanner: true })}>
-          Hide Banner
-        </button>
-
-        {/* <Counter
-          value={this.state.value}
-          onPlus={() => this.setState({ value: this.state.value + 1 })}
-          onMinus={() => this.setState({ value: this.state.value - 1 })}
-        /> */}
-        {this.state.loader === true ? (
-          <h1>Loading...</h1>
-        ) : (
+  return (
+    <div>
+      <Header />
+      {isLoader ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div>
           <div>
-            <h3>User Name : {this.state.userName}</h3>
-            <h3>Age : {this.state.age}</h3>
-            <h3>education : {this.state.education}</h3>
-            <h3>salary : {this.state.salary}</h3>
+            {/* <Banner img={data.bannerImage} /> */}
+            {value <= 10 ? (
+              <Counter
+                value={value}
+                onMinus={() => setValue(value - 1)}
+                onPlus={() => setValue(value + 1)}
+              />
+            ) : null}
+            {/* <div style={{ textAlign: "center" }}>
+              <button
+                style={{
+                  marginRight: 10,
+                  backgroundColor: tab === "Veg" ? "Yellow" : "gray",
+                }}
+                onClick={() => setTab("Veg")}
+              >
+                Veg
+              </button>
+              <button
+                onClick={() => setTab("Non Veg")}
+                style={{
+                  backgroundColor: tab === "Non Veg" ? "Yellow" : "gray",
+                }}
+              >
+                Non Veg
+              </button>
+            </div> */}
+            <div className="foodCardList">
+              {data.map((foodItem) => (
+                <FoodCard title={foodItem.title} image={foodItem.img} />
+              ))}
+            </div>
           </div>
-        )}
-        <button onClick={this.onSubmit}>Submit</button>
-      </div>
-    );
-  }
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default App;
