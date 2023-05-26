@@ -1,0 +1,14 @@
+.header {
+    display: flex; 
+    justify-content: space-between; 
+    padding: 10px 20px
+}
+.list {
+    display: flex;
+    list-style-type:none
+}
+.link {
+    text-decoration: none;
+    margin-left: 14px;
+    cursor: pointer;
+}
