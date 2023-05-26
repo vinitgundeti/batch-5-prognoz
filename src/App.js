@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.css"
 import Header from "./components/header";
 import Banner from "./components/banner";
 import Counter from "./components/counter";
@@ -36,7 +36,7 @@ function App() {
   }, [tab]);
 
   return (
-    <div>
+    <div className="appRoot">
       <Header />
       {isLoader ? (
         <h1>Loading...</h1>
@@ -44,13 +44,13 @@ function App() {
         <div>
           <div>
             {/* <Banner img={data.bannerImage} /> */}
-            {value <= 10 ? (
+            {/* {value <= 10 ? (
               <Counter
                 value={value}
                 onMinus={() => setValue(value - 1)}
                 onPlus={() => setValue(value + 1)}
               />
-            ) : null}
+            ) : null} */}
             {/* <div style={{ textAlign: "center" }}>
               <button
                 style={{
