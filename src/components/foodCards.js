@@ -1,14 +1,11 @@
-import styles from './foodCards.module.css'
+import { Link } from "react-router-dom";
+import styles from "./foodCards.module.css";
 
-export default function FoodCard({ title, image }) {
+export default function FoodCard({ title, image, id }) {
   return (
-    <div className={styles.foodCard}>
-      <img
-        className={styles.foodImg}
-        src={image}
-        alt=""
-      />
+    <Link className={styles.foodCard} to={`/food-info?id=${id}&title=${title}`}>
+      <img className={styles.foodImg} src={image} alt="" />
       <h3 className={styles.foodTitle}>{title}</h3>
-    </div>
+    </Link>
   );
 }

@@ -1,4 +1,3 @@
-import Header from "../components/header";
 import Banner from "../components/banner";
 import Counter from "../components/counter";
 import FoodCard from "../components/foodCards";
@@ -36,7 +35,6 @@ function Home() {
 
   return (
     <div className="appRoot">
-      <Header />
       {isLoader ? (
         <h1>Loading...</h1>
       ) : (
@@ -71,7 +69,7 @@ function Home() {
             </div> */}
             <div className="foodCardList">
               {data.map((foodItem) => (
-                <FoodCard title={foodItem.title} image={foodItem.img} />
+                <FoodCard title={foodItem.title} id={foodItem.id} image={foodItem.img} />
               ))}
             </div>
           </div>
