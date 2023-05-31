@@ -1,0 +1,60 @@
+{
+  "fooddata": [
+    {
+      "id": 1,
+      "name": "Chicken Curry",
+      "img": "https://myfoodstory.com/wp-content/uploads/2021/10/Veg-Manchurian-FI-1.jpg",
+      "isVeg": false,
+      "price": 100
+    },
+    {
+      "id": 2,
+      "name": "Veg Sandwich",
+      "img": "https://myfoodstory.com/wp-content/uploads/2021/10/Veg-Manchurian-FI-1.jpg",
+      "isVeg": true,
+      "price": 80
+    },
+    {
+      "id": 3,
+      "name": "Chicken Burger",
+      "img": "https://myfoodstory.com/wp-content/uploads/2021/10/Veg-Manchurian-FI-1.jpg",
+      "isVeg": false,
+      "price": 140
+    },
+    {
+      "id": 4,
+      "name": "Veg Salad",
+      "img": "https://myfoodstory.com/wp-content/uploads/2021/10/Veg-Manchurian-FI-1.jpg",
+      "isVeg": true,
+      "price": 120
+    },
+    {
+      "id": 5,
+      "name": "Veg Burger",
+      "img": "https://myfoodstory.com/wp-content/uploads/2021/10/Veg-Manchurian-FI-1.jpg",
+      "isVeg": true,
+      "price": 130
+    },
+    {
+      "id": 6,
+      "name": "Veg Manchurian",
+      "img": "https://myfoodstory.com/wp-content/uploads/2021/10/Veg-Manchurian-FI-1.jpg",
+      "isVeg": true,
+      "price": 60
+    },
+    {
+      "name": "Veg Fried Rice",
+      "img": "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/veg-noodles-vegetable-noodles.jpg",
+      "isVeg": true,
+      "price": "250",
+      "id": 7
+    },
+    {
+      "name": "Chicken Fried Rice",
+      "img": "https://www.vegrecipesofindia.com/wp-content/uploads/2020/12/burger-recipe-4.jpg",
+      "isVeg": false,
+      "price": "250",
+      "id": 8
+    }
+  ]
+}

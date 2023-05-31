@@ -18,8 +18,13 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/" className={styles.link}>
+            <Link to="/food" className={styles.link}>
               Food
+            </Link>
+          </li>
+          <li>
+            <Link to="/admin" className={styles.link}>
+              Admin
             </Link>
           </li>
           <li>

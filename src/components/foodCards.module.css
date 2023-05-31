@@ -9,7 +9,7 @@
 .foodImg { 
     width: 100%;
     height: 250px; 
-    object-fit: "cover" 
+    object-fit: cover 
 }
 .foodTitle {
     margin-top: 4px;
