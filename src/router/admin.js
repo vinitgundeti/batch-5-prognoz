@@ -1,14 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import style from "./admin.module.css";
 export default function Admin() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [formData, setFormData] = useState({
-    name: "",
-    img: "",
-    isVeg: true,
-    price: 0,
+    name: searchParams.get("title") || "",
+    img: searchParams.get("img") || "",
+    isVeg: searchParams.get("isVeg") === "true" ? true : false,
+    price: searchParams.get("price") || "",
   });
-
+  console.log(formData);
   const handleInputChange = (e) => {
     let inputName = e.target.name;
     setFormData({
@@ -17,10 +19,7 @@ export default function Admin() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-
+  const create = () => {
     fetch("http://localhost:3002/fooddata", {
       method: "POST",
       headers: {
@@ -40,6 +39,34 @@ export default function Admin() {
         })
       )
       .catch((err) => console.log(err));
+  };
+
+  const update = () => {
+    fetch(`http://localhost:3002/fooddata/${searchParams.get('id')}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) =>
+        response.json().then((data) => {
+          alert("Data updated successfully");
+          setFormData({
+            name: "",
+            img: "",
+            isVeg: true,
+            price: 0,
+          });
+        })
+      )
+      .catch((err) => console.log(err));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    searchParams.get("title") ? update() : create();
   };
   return (
     <div className={style.container}>
@@ -102,7 +129,7 @@ export default function Admin() {
           </a>
         </div>
         <button className={style.submitBtn} type="submit">
-          Submit
+          {searchParams.get('title') ? 'Update' : 'Add'} 
         </button>
       </form>
     </div>

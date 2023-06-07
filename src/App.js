@@ -8,6 +8,7 @@ import FoodDetails from "./router/foodDetails";
 import FoodInfo from "./router/foodInfo";
 import Admin from "./router/admin";
 import Food from "./router/food";
+import Users from "./router/users";
 export default function App() {
   const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ export default function App() {
         {
           path: "/contact",
           element: <ContactUs />,
+        },
+        {
+          path: "/users",
+          element: <Users />,
         },
         {
           path: "/admin",

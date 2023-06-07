@@ -65,9 +65,7 @@ export default function Food() {
       {foodData.map((item) => (
         <FoodCard
           key={item.id}
-          title={item.name}
-          image={item.img}
-          id={item.id}
+          data={item}
         />
       ))}
     </div>

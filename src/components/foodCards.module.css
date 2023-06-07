@@ -11,8 +11,17 @@
     height: 250px; 
     object-fit: cover 
 }
+.foodContent {
+    padding: 20px;
+}
 .foodTitle {
     margin-top: 4px;
     font-weight: 500;
-    margin-left: 10px;
+}
+.linkButton {
+    margin-right: 10px;
+    background-color: orange;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
 }

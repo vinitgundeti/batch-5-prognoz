@@ -67,11 +67,6 @@ function Home() {
                 Non Veg
               </button>
             </div> */}
-            <div className="foodCardList">
-              {data.map((foodItem) => (
-                <FoodCard title={foodItem.title} id={foodItem.id} image={foodItem.img} />
-              ))}
-            </div>
           </div>
         </div>
       )}

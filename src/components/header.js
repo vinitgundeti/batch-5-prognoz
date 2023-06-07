@@ -23,6 +23,11 @@ function Header() {
             </Link>
           </li>
           <li>
+            <Link to="/users" className={styles.link}>
+              Users
+            </Link>
+          </li>
+          <li>
             <Link to="/admin" className={styles.link}>
               Admin
             </Link>

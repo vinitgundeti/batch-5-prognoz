@@ -22,11 +22,11 @@
       "price": 140
     },
     {
-      "id": 4,
       "name": "Veg Salad",
-      "img": "https://myfoodstory.com/wp-content/uploads/2021/10/Veg-Manchurian-FI-1.jpg",
+      "img": "https://static.onecms.io/wp-content/uploads/sites/19/2011/04/08/chunky-vegetable-salad-ay-2000.jpg",
       "isVeg": true,
-      "price": 120
+      "price": "120",
+      "id": 4
     },
     {
       "id": 5,
@@ -36,11 +36,11 @@
       "price": 130
     },
     {
-      "id": 6,
-      "name": "Veg Manchurian",
-      "img": "https://myfoodstory.com/wp-content/uploads/2021/10/Veg-Manchurian-FI-1.jpg",
+      "name": "Chinese Bhel",
+      "img": "https://i.ytimg.com/vi/TWcBpbUrxic/maxresdefault.jpg",
       "isVeg": true,
-      "price": 60
+      "price": "130",
+      "id": 6
     },
     {
       "name": "Veg Fried Rice",
@@ -55,6 +55,20 @@
       "isVeg": false,
       "price": "250",
       "id": 8
+    }
+  ],
+  "users": [
+    {
+      "id": 2,
+      "name": "Bob Doe_edit_edit",
+      "email": "envkt@example.com",
+      "mobile": "+43294324"
+    },
+    {
+      "id": 4,
+      "name": "Bob Doe_edit",
+      "email": "envkt@example.com",
+      "mobile": "+43294324"
     }
   ]
 }
